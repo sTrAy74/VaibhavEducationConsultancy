@@ -19,6 +19,8 @@
 }
 
 html {
+  /* Framer Motion useScroll measures offsets against the scroll container; static breaks that. */
+  position: relative;
   scroll-behavior: smooth;
 }
 
@@ -29,6 +31,8 @@ html {
 }
 
 body {
+  /* Same as html: Framer Motion’s default scroll root must not be position:static. */
+  position: relative;
   background: var(--canvas);
   color: var(--fg-muted);
   font-family: var(--font-sans-body), system-ui, sans-serif;

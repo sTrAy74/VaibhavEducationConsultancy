@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ParallaxBanner } from "@/components/ParallaxBanner";
 import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/content/site";
 import type { GuidePageContent } from "@/content/resource-pages";
@@ -17,8 +18,14 @@ export function GuidePageLayout({
     <>
       <Header orgName={site.orgName} nav={site.nav} />
       <main id="main-content" className="flex-1 outline-none" tabIndex={-1}>
-        <div className="border-b border-[var(--line)] bg-[var(--muted)]">
-          <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20">
+        <div className="border-b border-[var(--line)]">
+          <div
+            className={
+              content.heroImage
+                ? "mx-auto max-w-7xl px-5 pt-12 sm:px-6 sm:pt-16"
+                : "mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20"
+            }
+          >
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--fg-faint)]">
                 {content.eyebrow}
@@ -31,6 +38,18 @@ export function GuidePageLayout({
               </p>
             </Reveal>
           </div>
+          {content.heroImage ? (
+            <div className="mx-auto mt-10 max-w-7xl px-5 pb-12 sm:px-6 sm:pb-16">
+              <Reveal delay={0.08}>
+                <ParallaxBanner
+                  src={content.heroImage.src}
+                  alt={content.heroImage.alt}
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  className="aspect-[2/1] min-h-[160px] max-h-[min(42vh,340px)] sm:max-h-[380px]"
+                />
+              </Reveal>
+            </div>
+          ) : null}
         </div>
 
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-20">

@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plex.variable} ${spectral.variable} h-full antialiased`}
+      className={`${plex.variable} ${spectral.variable} relative h-full antialiased`}
     >
       <body className="relative min-h-full overflow-x-clip flex flex-col text-[15px] leading-relaxed">
         <ScrollProgress />

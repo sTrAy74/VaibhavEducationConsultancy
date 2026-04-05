@@ -10,6 +10,51 @@ export function getUniversityCategoriesForSlug(
   return universityCatalog[slug];
 }
 
+/** Display order for tables and anchors (`/universities#russia`, etc.). */
+export const universityCountryOrder = [
+  "russia",
+  "uzbekistan",
+  "kazakhstan",
+  "georgia",
+] as const;
+
+export const UNIVERSITY_COUNTRY_LABELS: Record<string, string> = {
+  russia: "Russia",
+  uzbekistan: "Uzbekistan",
+  kazakhstan: "Kazakhstan",
+  georgia: "Georgia",
+};
+
+export type UniversityTableRow = {
+  country: string;
+  slug: string;
+  group: string;
+  name: string;
+  summary: string;
+};
+
+/** Flat rows for the /universities table (same data as the grouped catalog). */
+export function getUniversityTableRows(): UniversityTableRow[] {
+  const rows: UniversityTableRow[] = [];
+  for (const slug of universityCountryOrder) {
+    const categories = universityCatalog[slug];
+    if (!categories) continue;
+    const country = UNIVERSITY_COUNTRY_LABELS[slug] ?? slug;
+    for (const cat of categories) {
+      for (const u of cat.universities) {
+        rows.push({
+          country,
+          slug,
+          group: cat.title,
+          name: u.name,
+          summary: u.description,
+        });
+      }
+    }
+  }
+  return rows;
+}
+
 export const universityCatalog: Record<string, readonly DestinationCategory[]> = {
   russia: [
     {

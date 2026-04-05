@@ -42,6 +42,22 @@ export function getDestinationCover(slug: string): { src: string; alt: string } 
   );
 }
 
+/** Guide pages (/universities, /courses, /scholarships) — reuse assets under /public/images/stock. */
+export const universitiesPageCover = {
+  src: `${base}/service-2.jpg`,
+  alt: "Students with notebooks seated in a bright classroom",
+};
+
+export const coursesPageCover = {
+  src: `${base}/trust.jpg`,
+  alt: "Student writing in a notebook during a lecture in a bright hall",
+};
+
+export const scholarshipsPageCover = {
+  src: `${base}/eligibility.jpg`,
+  alt: "Documents and pen on a desk suggesting application paperwork",
+};
+
 export const serviceSpotlights = [
   {
     src: `${base}/service-1.jpg`,

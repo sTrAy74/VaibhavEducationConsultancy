@@ -9,7 +9,7 @@ import { MotionLift } from "@/components/MotionLift";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { homeIndexNav } from "@/content/home-index-nav";
-import { site } from "@/content/site";
+import { contactTelHref, site } from "@/content/site";
 import { destinations } from "@/content/destinations";
 import {
   approachSectionImage,
@@ -75,30 +75,32 @@ export default function Home() {
           className="border-b border-[var(--line)]"
           aria-labelledby="hero-heading"
         >
-          <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-24">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <div className="mx-auto max-w-[min(100%,84rem)] px-5 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+            <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-end lg:gap-14">
               <Reveal>
-                <div>
-                  <Label>{site.hero.eyebrow}</Label>
+                <div className="lg:max-w-none">
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-[var(--fg-faint)] sm:text-[13px] sm:tracking-[0.18em]">
+                    {site.hero.eyebrow}
+                  </p>
                   <h1
                     id="hero-heading"
-                    className="mt-4 font-serif text-[2.125rem] font-normal leading-[1.12] tracking-tight text-[var(--fg)] sm:text-5xl lg:text-[3rem]"
+                    className="mt-4 font-serif text-[2.125rem] font-normal leading-[1.1] tracking-tight text-[var(--fg)] sm:text-5xl sm:leading-[1.08] lg:text-[3.25rem] lg:leading-[1.06]"
                   >
                     {site.hero.headline}
                   </h1>
-                  <p className="mt-6 max-w-md text-[0.9375rem] leading-relaxed text-[var(--fg-muted)] sm:text-base">
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-muted)] sm:mt-6 sm:text-lg sm:leading-relaxed">
                     {site.hero.subhead}
                   </p>
-                  <div className="mt-10 flex flex-wrap gap-3">
+                  <div className="mt-9 flex flex-wrap gap-3 sm:mt-10">
                     <Link
                       href={site.hero.primaryCta.href}
-                      className="inline-flex h-11 items-center bg-[var(--fg)] px-6 text-sm font-medium text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex h-12 min-h-12 items-center bg-[var(--fg)] px-7 text-sm font-medium text-white transition-transform hover:scale-[1.02] active:scale-[0.98] sm:px-8 sm:text-[15px]"
                     >
                       {site.hero.primaryCta.label}
                     </Link>
                     <Link
                       href={site.hero.secondaryCta.href}
-                      className="inline-flex h-11 items-center border border-[var(--fg)] bg-transparent px-6 text-sm font-medium text-[var(--fg)] transition-colors hover:bg-[var(--muted)]"
+                      className="inline-flex h-12 min-h-12 items-center border border-[var(--fg)] bg-transparent px-7 text-sm font-medium text-[var(--fg)] transition-colors hover:bg-[var(--muted)] sm:px-8 sm:text-[15px]"
                     >
                       {site.hero.secondaryCta.label}
                     </Link>
@@ -109,7 +111,7 @@ export default function Home() {
                 <HeroParallax
                   src={homeHeroImage.src}
                   alt={homeHeroImage.alt}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 52vw"
                   priority
                 />
               </Reveal>
@@ -350,8 +352,8 @@ export default function Home() {
                           </h3>
                           <p className="mt-3 text-sm leading-relaxed">
                             {card.body}
-                          </p>
-                        </div>
+          </p>
+        </div>
                       </div>
                     </MotionLift>
                   </Reveal>
@@ -381,7 +383,7 @@ export default function Home() {
                   alt={processSectionImage.alt}
                   fill
                   className="object-cover"
-                  sizes="100vw"
+                  sizes="(max-width: 1024px) calc(100vw - 2.5rem), (max-width: 1280px) calc(100vw - 14rem), 64rem"
                 />
               </div>
             </Reveal>
@@ -577,18 +579,21 @@ export default function Home() {
                         </a>
                       </dd>
                     </div>
-                    {contact.phone ? (
+                    {contact.phones.length > 0 ? (
                       <div>
                         <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--fg-faint)]">
-                          Phone
+                          Contact numbers
                         </dt>
-                        <dd className="mt-1.5">
-                          <a
-                            href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                            className="text-[var(--fg)] hover:underline"
-                          >
-                            {contact.phone}
-                          </a>
+                        <dd className="mt-1.5 space-y-2">
+                          {contact.phones.map((num) => (
+                            <a
+                              key={num}
+                              href={contactTelHref(num)}
+                              className="block text-base font-medium text-[var(--fg)] underline-offset-4 hover:underline"
+                            >
+                              {num}
+                            </a>
+                          ))}
                         </dd>
                       </div>
                     ) : null}
@@ -613,14 +618,16 @@ export default function Home() {
               </Reveal>
             </div>
             <Reveal delay={0.1}>
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[var(--line)] lg:sticky lg:top-[7rem]">
-                <Image
-                  src={contactSectionImage.src}
-                  alt={contactSectionImage.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+              <div className="lg:sticky lg:top-[7rem] lg:self-start">
+                <div className="relative aspect-[4/5] w-full overflow-hidden border border-[var(--line)]">
+                  <Image
+                    src={contactSectionImage.src}
+                    alt={contactSectionImage.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>

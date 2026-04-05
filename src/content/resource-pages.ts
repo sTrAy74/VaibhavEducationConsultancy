@@ -3,6 +3,12 @@
  * Edit copy here; pages consume via GuidePageLayout.
  */
 
+import {
+  coursesPageCover,
+  scholarshipsPageCover,
+  universitiesPageCover,
+} from "@/content/stock-images";
+
 export type GuideSection = {
   id: string;
   title: string;
@@ -25,6 +31,8 @@ export type GuidePageContent = {
   eyebrow: string;
   title: string;
   intro: string;
+  /** Hero banner below the title block (same pattern as destination guides). */
+  heroImage?: { src: string; alt: string };
   highlights?: readonly GuideHighlight[];
   sections: readonly GuideSection[];
   relatedHeading?: string;
@@ -39,6 +47,7 @@ export const universitiesPage = {
   title: "Universities",
   intro:
     "Choosing a university is not about rankings alone - it is about fit with your budget, academic profile, licensing goals, and comfort with the country. Below is how we think about shortlisting and verification, then programme listings grouped by country (anchors: Russia, Uzbekistan, Kazakhstan, Georgia).",
+  heroImage: universitiesPageCover,
   highlights: [
     {
       title: "Recognition & rules",
@@ -97,6 +106,7 @@ export const coursesPage = {
   title: "Courses & pathways",
   intro:
     "Most families we speak with are weighing undergraduate medical degrees delivered abroad - often framed as MBBS or MD depending on the country. The labels differ; what matters is structure, recognition, and how you plan for licensing after graduation.",
+  heroImage: coursesPageCover,
   highlights: [
     {
       title: "Duration",
@@ -155,6 +165,7 @@ export const scholarshipsPage = {
   title: "Scholarships & finance",
   intro:
     "Very few overseas MBBS places are fully funded by generic “scholarships” in the way families hope. Most students combine family savings, education loans, and occasionally merit or early-bird fee discounts from institutions. Here is an honest framing so you can plan early.",
+  heroImage: scholarshipsPageCover,
   highlights: [
     {
       title: "Institutional aid",

@@ -187,10 +187,10 @@ export const site = {
   contact: {
     title: "Contact",
     intro:
-      "Use email for the fastest paper trail. Include your city, academic stage, and whether you are comparing specific countries.",
-    email: "hello@example.com",
-    /** Set to a real number string to show the phone row; keep "" to hide. */
-    phone: "" as string,
+      "Use email for the fastest paper trail, or call us on the numbers below. Include your city, academic stage, and whether you are comparing specific countries.",
+    email: "admission@vaibhavmedicaleducationconsultancy.com",
+    /** Indian mobile numbers as shown to visitors; 10-digit values use +91 in tel: links. Leave empty to hide. */
+    phones: ["8310258398", "6361394820"],
     /** Optional; keep "" to hide. */
     location: "" as string,
     hours: "Weekdays, 10:00 – 18:00 (by appointment)",
@@ -215,3 +215,14 @@ export const site = {
 } as const;
 
 export type SiteNavLink = (typeof site.nav)[number];
+
+/** Build tel: href for {@link site.contact.phones}; 10-digit Indian mobiles default to +91. */
+export function contactTelHref(raw: string): string {
+  const trimmed = raw.trim();
+  if (trimmed.startsWith("+")) {
+    return `tel:${trimmed.replace(/\s/g, "")}`;
+  }
+  const digits = raw.replace(/\D/g, "");
+  if (digits.length === 10) return `tel:+91${digits}`;
+  return `tel:${digits}`;
+}

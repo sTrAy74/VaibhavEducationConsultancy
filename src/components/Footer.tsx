@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
+import { contactTelHref, site } from "@/content/site";
 
 export function Footer({
   orgName,
@@ -27,6 +28,22 @@ export function Footer({
             <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {note.replace("{year}", String(year))}
             </p>
+            {site.contact.phones.length > 0 ? (
+              <p className="mt-4 text-sm text-[var(--fg-muted)]">
+                <span className="text-[var(--fg-faint)]">Phone: </span>
+                {site.contact.phones.map((num, i) => (
+                  <span key={num}>
+                    {i > 0 ? " · " : null}
+                    <a
+                      href={contactTelHref(num)}
+                      className="text-[var(--fg)] underline-offset-4 hover:underline"
+                    >
+                      {num}
+                    </a>
+                  </span>
+                ))}
+              </p>
+            ) : null}
           </div>
           <nav aria-label="Footer" className="shrink-0">
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--fg-faint)]">

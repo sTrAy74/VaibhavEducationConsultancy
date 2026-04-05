@@ -66,7 +66,7 @@ export function Footer({
         <p className="mt-12 max-w-2xl border-t border-[var(--line)] pt-8 text-xs leading-relaxed text-[var(--fg-faint)]">
           {legal}
         </p>
-        <p className="mt-4 text-xs leading-relaxed text-[var(--fg-faint)]">
+        {/* <p className="mt-4 text-xs leading-relaxed text-[var(--fg-faint)]">
           Photographs via{" "}
           <a
             href="https://unsplash.com"
@@ -86,7 +86,7 @@ export function Footer({
             license
           </a>
           ).
-        </p>
+        </p> */}
       </div>
     </footer>
   );

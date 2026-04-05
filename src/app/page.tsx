@@ -121,7 +121,7 @@ export default function Home() {
 
         <div className="mx-auto flex min-w-0 max-w-7xl gap-6 px-5 sm:gap-8 sm:px-6">
           <HomeIndexNav items={homeIndexNav} />
-          <div className="min-w-0 flex-1">
+          <div className="min-w-0 max-w-full flex-1 overflow-x-clip">
         <section
           id="trust"
           className="scroll-mt-28 border-b border-[var(--line)] bg-[var(--muted)] py-16 sm:py-20"
@@ -551,11 +551,11 @@ export default function Home() {
 
         <section
           id="contact"
-          className="scroll-mt-28 py-20 sm:py-24"
+          className="scroll-mt-28 min-w-0 py-20 sm:py-24"
           aria-labelledby="contact-heading"
         >
-          <div className="grid w-full gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
-            <div>
+          <div className="grid min-w-0 w-full gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
+            <div className="min-w-0">
               <Reveal>
                 <Label>Contact</Label>
                 <H2 id="contact-heading">{contact.title}</H2>
@@ -617,15 +617,18 @@ export default function Home() {
                 </div>
               </Reveal>
             </div>
-            <Reveal delay={0.1}>
-              <div className="lg:sticky lg:top-[7rem] lg:self-start">
-                <div className="relative aspect-[4/5] w-full overflow-hidden border border-[var(--line)]">
+            <Reveal
+              delay={0.1}
+              className="min-w-0 max-w-full justify-self-stretch"
+            >
+              <div className="min-w-0 max-w-full lg:sticky lg:top-[7rem] lg:self-start">
+                <div className="relative aspect-[4/5] w-full max-w-full min-w-0 overflow-hidden border border-[var(--line)]">
                   <Image
                     src={contactSectionImage.src}
                     alt={contactSectionImage.alt}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) calc(50vw - 5rem), 36rem"
                   />
                 </div>
               </div>

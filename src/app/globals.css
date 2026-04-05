@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Monograph: white field, black type, hairlines only - no theme colours */
+:root {
+  --canvas: #ffffff;
+  --muted: #fafafa;
+  --fg: #0a0a0a;
+  --fg-muted: #525252;
+  --fg-faint: #737373;
+  --line: #e5e5e5;
+  --line-strong: #d4d4d4;
+  --focus-ring: 2px solid var(--fg);
+  --focus-offset: 2px;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans-body);
+  --font-serif: var(--font-serif-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--canvas);
+  color: var(--fg-muted);
+  font-family: var(--font-sans-body), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  border-radius: 2px;
+}
+
+details.faq-item summary {
+  list-style: none;
+}
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}

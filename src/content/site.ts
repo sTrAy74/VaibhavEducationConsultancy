@@ -133,7 +133,7 @@ export const site = {
     items: [
       "Minimum 54 months of academic study plus 12 months of internship, in the same institution’s hospital network where required.",
       "English as the medium of instruction for the entire course - documented in offer or regulatory filings, not only marketing pages.",
-      "Eligibility to register and practise in the country where you study, so your qualification is licenced for its home jurisdiction.",
+      "Eligibility to register and practise in the country where you study, so your qualification is licensed in its home jurisdiction.",
       "Valid NEET score for the relevant academic year if you are an Indian national seeking an overseas MBBS (as per current NMC guidance).",
       "Passport, financial documentation, and medical fitness requirements ready before application peaks (typically spring for autumn intake).",
     ],
@@ -191,8 +191,9 @@ export const site = {
     email: "admission@vaibhavmedicaleducationconsultancy.com",
     /** Indian mobile numbers as shown to visitors; 10-digit values use +91 in tel: links. Leave empty to hide. */
     phones: ["8310258398", "6361394820"],
-    /** Optional; keep "" to hide. */
-    location: "" as string,
+    /** Office address; keep "" to hide. Use \n for a line break in the contact card. */
+    location:
+      "#534, 1st Floor, 3rd Block, BDA Layout\nNagarbhavi, Bengaluru 560072",
     hours: "Weekdays, 10:00 – 18:00 (by appointment)",
   },
 

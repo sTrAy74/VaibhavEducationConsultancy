@@ -111,7 +111,7 @@ export default function Home() {
                 <HeroParallax
                   src={homeHeroImage.src}
                   alt={homeHeroImage.alt}
-                  sizes="(max-width: 1024px) 100vw, 52vw"
+                  sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(100vw - 5rem), 48vw"
                   priority
                 />
               </Reveal>
@@ -134,8 +134,9 @@ export default function Home() {
                   src={trustSectionImage.src}
                   alt={trustSectionImage.alt}
                   fill
+                  priority
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) calc(50vw - 5rem), 36rem"
                 />
               </div>
             </Reveal>
@@ -194,7 +195,7 @@ export default function Home() {
                             alt={img.alt}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-[1.05] group-hover:grayscale-0 grayscale-[0.2]"
-                            sizes="(max-width: 640px) 100vw, 50vw"
+                            sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(50vw - 2rem), 40vw"
                           />
                         </div>
                         <div className="p-6 sm:p-7">
@@ -294,7 +295,7 @@ export default function Home() {
                             alt={shot.alt}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(50vw - 2rem), (max-width: 1280px) 25vw, 18rem"
                           />
                         </div>
                         <div className="flex flex-1 flex-col p-5">
@@ -343,7 +344,7 @@ export default function Home() {
                             alt={photo.alt}
                             fill
                             className="object-cover"
-                            sizes="(max-width: 640px) 100vw, 33vw"
+                            sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(33vw - 1.25rem), 22rem"
                           />
                         </div>
                         <div className="p-6 sm:p-7">
@@ -383,7 +384,7 @@ export default function Home() {
                   alt={processSectionImage.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) calc(100vw - 2.5rem), (max-width: 1280px) calc(100vw - 14rem), 64rem"
+                  sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) calc(100vw - 14rem), 64rem"
                 />
               </div>
             </Reveal>
@@ -434,7 +435,7 @@ export default function Home() {
                   alt={approachSectionImage.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) 42vw, 28rem"
                 />
               </div>
             </Reveal>
@@ -455,7 +456,7 @@ export default function Home() {
                     alt={eligibilitySectionImage.alt}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 360px"
+                    sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) min(360px, 40vw), 22rem"
                   />
                 </div>
               </Reveal>
@@ -602,7 +603,7 @@ export default function Home() {
                         <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--fg-faint)]">
                           Location
                         </dt>
-                        <dd className="mt-1.5 text-[var(--fg)]">
+                        <dd className="mt-1.5 whitespace-pre-line text-[var(--fg)]">
                           {contact.location}
                         </dd>
                       </div>

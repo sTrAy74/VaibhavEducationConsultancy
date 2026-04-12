@@ -44,6 +44,12 @@ export function Footer({
                 ))}
               </p>
             ) : null}
+            {site.contact.location ? (
+              <p className="mt-4 text-sm leading-relaxed whitespace-pre-line text-[var(--fg-muted)]">
+                <span className="text-[var(--fg-faint)]">Address: </span>
+                {site.contact.location}
+              </p>
+            ) : null}
           </div>
           <nav aria-label="Footer" className="shrink-0">
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--fg-faint)]">

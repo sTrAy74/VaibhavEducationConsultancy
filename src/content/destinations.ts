@@ -99,7 +99,7 @@ export const destinations: readonly Destination[] = [
     ],
     comparisonTable: {
       title: "Why choose Kazakhstan for 2026?",
-      headers: ["Feature", "Advantage for your consultancy"] as const,
+      headers: ["Feature", "Advantage"] as const,
       rows: [
         {
           feature: "Budget",
@@ -135,7 +135,7 @@ export const destinations: readonly Destination[] = [
       "Most Georgian universities offer a 6-year MD program (equivalent to MBBS) that is fully compliant with the NMC 2021 Gazette. Grouped university lists are on our Universities page under Georgia.",
     ],
     comparisonTable: {
-      title: 'Why Georgia is the "premium choice" for your clients',
+      title: 'Why Georgia is often called a "premium" choice',
       headers: ["Feature", "The Georgia advantage"] as const,
       rows: [
         {

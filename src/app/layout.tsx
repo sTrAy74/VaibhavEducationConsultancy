@@ -10,12 +10,16 @@ const plex = IBM_Plex_Sans({
   variable: "--font-sans-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 const spectral = Spectral({
   variable: "--font-serif-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
